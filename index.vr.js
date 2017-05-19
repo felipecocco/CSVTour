@@ -31,8 +31,8 @@ export default class CSVTour extends React.Component {
               height: 600,
               flexDirection: 'row',
               alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: 'green'
+              justifyContent: 'center'
+              // backgroundColor: 'green'
             }}
           >
             <NavigationPanel />
