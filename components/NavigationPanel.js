@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Image, Text, View, StyleSheet, VrButton } from 'react-vr';
+import { Image, asset, Text, View, StyleSheet, VrButton, VrSoundEffects } from 'react-vr';
 export default class NavigationPanel extends Component {
   constructor(props) {
     super(props);
+    VrSoundEffects.load(asset('forest.mp3'));
     this.state = {
       hovered: false
     };
@@ -10,7 +11,7 @@ export default class NavigationPanel extends Component {
   render() {
     let that = this;
     return (
-      <VrButton onClick={() => console.log('clicked')}>
+      <VrButton onButtonPress={() => VrSoundEffects.play(asset('forest.mp3'))}>
         <View
           style={[styles.container, { backgroundColor: that.state.hovered ? 'rgba(0,0,0,.3)' : '' }]}
           onEnter={() => this.setState({ hovered: true })}
@@ -19,7 +20,7 @@ export default class NavigationPanel extends Component {
 
           <Image
             source={{
-              uri: 'http://upload.wikimedia.org/wikipedia/commons/3/34/Rub_al_Khali_002.JPG'
+              uri: '//upload.wikimedia.org/wikipedia/commons/3/34/Rub_al_Khali_002.JPG'
             }}
             style={styles.image}
             resizeMode={'contain'}
@@ -41,6 +42,5 @@ var styles = StyleSheet.create({
     padding: 20,
     marginRight: 20,
     marginLeft: 20
-    // transform: [{ rotateX: -20 }]
   }
 });

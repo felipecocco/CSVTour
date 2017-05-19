@@ -1,25 +1,20 @@
 import React from 'react';
-import { AppRegistry, asset, Pano, Image, Text, View, Scene, CylindricalPanel } from 'react-vr';
+import { AppRegistry, asset, Pano, Image, Text, View, Scene, CylindricalPanel, Sound } from 'react-vr';
 import NavigationPanel from './components/NavigationPanel';
 
 export default class CSVTour extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')} />
+        <Pano source={asset('forest.jpg')} />
+        {/* <Sound
+          // Background audio that plays throughout the tour.
+          source={asset('forest.mp3')}
+          autoPlay={true}
+          loop={true}
+          volume={1}
+        /> */}
 
-        {/* <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            layoutOrigin: [0.5, 0.5],
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            position: 'absolute',
-            backgroundColor: 'blue',
-            transform: [{ translate: [0, -2, -6] }]
-          }}
-        > */}
         <CylindricalPanel
           layer={{ width: 2340, height: 600 }}
           style={{ position: 'absolute', transform: [{ translate: [0, -0, 0] }] }}
@@ -42,10 +37,12 @@ export default class CSVTour extends React.Component {
           </View>
 
         </CylindricalPanel>
+        <Image
+          source={asset('bee.png')}
+          style={{ position: 'absolute', height: 2.5, width: 2, transform: [{ translate: [0, -2, 20] }] }}
+        />
       </View>
     );
-
-    // </View>
   }
 }
 
